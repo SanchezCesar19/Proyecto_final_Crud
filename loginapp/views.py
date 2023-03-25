@@ -15,10 +15,21 @@ def loginsesiondef(request):
         passtr = request.POST.get('pass')
         try:
             print(usustr, passtr)
-            usuario.objects.get(usuario=usustr, password=passtr)
+            usu=usuario.objects.get(usuario=usustr, password=passtr)
             print(usustr, passtr)
-            informacion.objects.values()
-            return render(request, "pruena.html", {"infostr": informacion, 'usustr': usuario.usuario,})
+            infousulist = informacion.objects.get(usuario=usu)
+            return render(request, "bienvenido.html", {
+                'usuid': usu.id,
+                'usu': usu.usuario,
+                'usues': usu.estado,
+                "infousuid": infousulist.id,
+                "infousuci": infousulist.ci,
+                "infousunom": infousulist.nombre,
+                "infousuape": infousulist.apellido,
+                "infousufech": infousulist.fcha_nacimiento,
+                "infousudir": infousulist.direccion,
+                "infousuema": infousulist.email
+            })
         except usuario.DoesNotExist:
             return render(request, "login.html",{"err":"-Usuario y contraseña incorrectos-"})
 #

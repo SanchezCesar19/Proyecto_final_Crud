@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %} Bienvenido {% endblock %}
+
+{% block body %}
+    <div class="card col-md-4 offset-md-4 ">
+        <div class="card-body" style="text-align: center;">
+        <h1>Usuario</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>{{ usuid }}</td>
+                            <td>{{ usu }}</td>
+                            <td>{{ usues }}</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="card">
+        <div class="card-body" style="text-align: center;">
+        <h1>Informacion del Usuario</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ci</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Fecha de nacimiento</th>
+                        <th>Direccion</th>
+                        <th>Email</th>
+                        <th colspan="2">Sistema gestor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ infousuid }}</td>
+                        <td>{{ infousuci }}</td>
+                        <td>{{ infousunom }}</td>
+                        <td>{{ infousuape }}</td>
+                        <td>{{ infousufech }}</td>
+                        <td>{{ infousudir }}</td>
+                        <td>{{ infousuema }}</td>
+                        <td><a href="" class="btn btn-info">🢂</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+{% endblock %}
