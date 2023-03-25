@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+    <div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h1>Iniciar sesión</h1>
+        <br>
+        <div class="card">
+            <div class="card-body" style="text-align: center;">
+                <form class="login-form" method="post" action="/iniciaste_sesion/">
+                    {% csrf_token %}
+                    <h1 class="err">{{ err }}</h1>
+                    <div class="mb-3" style="text-align: center;">
+                        <label for="correo" class="form-label">Usuario</label>
+                        <input name="usu" type="text" class="form-control" id="correo" placeholder="Ingrese su usuario">
+                    </div>
+                    <div class="mb-3" style="text-align: center;">
+                        <label for="contraseña" class="form-label">Contraseña</label>
+                        <input name="pass"type="password" class="form-control" id="contraseña" placeholder="Ingresa tu contraseña">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+
+    <div class="col-md-4 offset-md-4">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h1>Crea un usuario aqui</h1>
+        <br>
+        <div class="card">
+            <div class="card-body" style="text-align: center;">
+                <form class="login-form" method="POST" action="/creaste_usuario/">
+                {% csrf_token %}
+                    <div class="mb-3" style="text-align: center;">
+                        <label class="form-label">Id de este nuevo usuario</label>
+                        <input name="idnew" type="number" class="form-control"  placeholder="Ingrese su nuevo id">
+                    </div>
+                    <div class="mb-3" style="text-align: center;">
+                        <label class="form-label">Usuario</label>
+                        <input name="usenew" type="text" class="form-control"  placeholder="Ingrese su nuevo usuario">
+                    </div>
+                    <div class="mb-3" style="text-align: center;">
+                        <label class="form-label">Contraseña</label>
+                        <input name="passnew" type="password" class="form-control" id="contraseña" placeholder="Ingrese su nueva contraseña">
+                    </div>
+                    <div class="mb-3" style="text-align: center;">
+                        <label class="form-label">Ci</label>
+                        <input name="ciusu" type="text" class="form-control"  placeholder="Ingrese su numero de cedula">
+                    </div>
+                    <div class="mb-3" style="text-align: center;">
+                        <label class="form-label">Nombre</label>
+                        <input name="nomusu" type="text" class="form-control"  placeholder="Ingrese su nombre">
+                    </div>
+                    <div class="mb-3" style="text-align: center;">
+                        <label class="form-label">Apellido</label>
+                        <input name="apeusu" type="text" class="form-control"  placeholder="Ingrese su apellido">
+                    </div>
+                    <div class="mb-3" style="text-align: center;">
+                        <label class="form-label">Fecha de nacimiento</label>
+                        <input name="dateusu" type="date" class="form-control"  placeholder="Ingrese su fecha de nacimiento">
+                    </div>
+                    <div class="mb-3" style="text-align: center;">
+                        <label class="form-label">Direccion</label>
+                        <input name="direusu" type="text" class="form-control"  placeholder="Ingrese su direccion">
+                    </div>
+                    <div class="mb-3" style="text-align: center;">
+                        <label class="form-label">Email</label>
+                        <input name="imeusu" type="email" class="form-control"  placeholder="Ingrese su email">
+                    </div>
+                    <button type="submit" class="btn btn-success">Crear usuario</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
