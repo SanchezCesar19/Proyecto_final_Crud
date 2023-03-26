@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-
 from loginapp.models import usuario, informacion
 
 
