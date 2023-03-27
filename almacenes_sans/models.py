@@ -8,8 +8,8 @@ class proveedor(models.Model):
     telefono = models.CharField(max_length=20)
 
     def __str__(self):
-        texto = "({0}) {1} [{2}] -{3}-}"
-        return texto.format(self.id, self.nombre, self.direccion, self.direccion)
+        texto = "({0}) {1} [{2}] -{3}-"
+        return texto.format(self.id, self.nombre, self.direccion, self.telefono)
 
     class Meta: db_table = 'proveedor'
 
@@ -25,7 +25,7 @@ class producto(models.Model):
     proveedor = models.ForeignKey(proveedor, on_delete=models.CASCADE)
 
     def __str__(self):
-        texto = "({0}) {1} [{2}] -{3}-}"
+        texto = "({0}) {1} [{2}] -{3}-"
         return texto.format(self.id, self.nombre, self.precio, self.estado)
 
     class Meta: db_table = 'producto'

@@ -1,0 +1,38 @@
+{% extends "baseges.html" %}
+
+{% block title %} Edite el producto {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edición de Producto</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/producto_editado/" method="POST">{% csrf_token %}
+                    <div class="form-group mb-3">
+                        <input type="text" id="txtCodigo" name="txtidpro" value="{{editproduc.id}}" class="form-control" placeholder="Id del producto" readonly required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" id="txtNombre" name="txtNombrepro" value="{{editproduc.nombre}}" class="form-control" placeholder="Nombre del producto"required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" id="txtNombre" name="txtdescrippro" value="{{editproduc.descripcion}}" class="form-control" placeholder="Descripcion del producto"required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" id="txtNombre" name="txtpreciopro" value="{{editproduc.precio}}" class="form-control" placeholder="Precio del producto"required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" id="txtNombre" name="txtcategopro" value="{{editproduc.categoria}}" class="form-control" placeholder="Categoria del producto"required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" id="txtNombre" name="txtfabripro" value="{{editproduc.fabricante}}" class="form-control" placeholder="Fabricante del producto"required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <button type="submit" style="display: block; width: 100%;" class="btn btn-success btn-block text-white">Guardar Producto</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
