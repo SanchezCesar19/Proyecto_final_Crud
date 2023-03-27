@@ -1,11 +1,16 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from almacenes_sans.models import producto,proveedor
+from django.contrib import messages
 # Create your views here.
 def home(request):
-    productos= producto.objects.all()
     proveedores = proveedor.objects.all()
-    return render(request, "gestionproducto.html", {"productos": productos,
-                                                    "proveedores":proveedores})
+    messages.success(request, '¡Provedores listados!')
+    productos = producto.objects.all()
+    messages.success(request, '¡Productos listados!')
+    return render(request, "gestionproducto.html", {"proveedores":proveedores,
+                                                    "productos": productos
+                                                    })
 def registroproveedor(request):
     proveid= request.POST['txtid']
     provenom= request.POST['txtNombre']
@@ -16,6 +21,7 @@ def registroproveedor(request):
                                            nombre=provenom,
                                            direccion=provedire,
                                            telefono=provetelef)
+    messages.success(request, '¡Provedor Registrado!')
     return redirect('gestion_producto')
 
 def registroproducto(request):
@@ -33,17 +39,20 @@ def registroproducto(request):
                                           categoria=produccatego,
                                           fabricante=producfabric,
                                         proveedor_id=proveeid)
+    messages.success(request, '¡Producto Registrado!')
     return redirect('gestion_producto')
 
 
 def eliminarproveedor(request,id):
     proves = proveedor.objects.get(id=id)
     proves.delete()
+    messages.success(request, '¡Provedor Eliminado!')
     return redirect('gestion_producto')
 
 def eliminarproducto(request,id):
     proves = producto.objects.get(id=id)
     proves.delete()
+    messages.success(request, '¡Producto Eliminado!')
     return redirect('gestion_producto')
 
 def editarproveedor(request,id):
@@ -61,6 +70,7 @@ def guardaredicioproveedor(request):
     proves.direccion = provedire
     proves.telefono = provetelef
     proves.save()
+    messages.success(request, '¡Provedor Actualizados!')
 
     return redirect('gestion_producto')
 
@@ -83,5 +93,6 @@ def guardaredicioproducto(request):
     produc.categoria = producatego
     produc.fabricante = produfari
     produc.save()
+    messages.success(request, '¡Producto Actualizado!')
 
     return redirect('gestion_producto')
